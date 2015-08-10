@@ -52,7 +52,7 @@ class BigInt {
 	void add (const BigInt& r, int e=0) {
 		int i, mn, sz, rsz;
 		ll c = 0;
-		for (i=min(e,mag.size()); i<e; i++)
+		for (i=min(e,(int)mag.size()); i<e; i++)
 			mag.push_back(0);
 		mn = min (sz = mag.size(), rsz = r.mag.size()+e);
 		for (; i<mn; i++) {
