@@ -43,7 +43,7 @@ class BigInt {
 		if (rs) return rs;
 		for (i=mag.size()-1; i>=e; i--)
 			if (mag[i] != r.mag[i-e])
-				rs = (mag[i] > r.mag[i-e] ? 1:-1);
+				return (mag[i] > r.mag[i-e] ? 1:-1);
 		for (; i>=0; i--)
 			if (mag[i]) return 1;
 		return 0;
