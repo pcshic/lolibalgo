@@ -10,28 +10,26 @@ template<int __MAXN> class DisjointSet
 public:
 	int Group[__MAXN], Rank[__MAXN];
 
-	void MakeSet(int N)
-	{
+	void MakeSet(int N) {
 		for (int i = 0; i < N; ++i)
 			Rank[ Group[i] = i ] = 0;
 	}
 
-	int Find(int k)
-	{
+	int Find(int k) {
 		return Group[k] == k ? Group[k] : Group[k] = Find(Group[k]);
 	}
 
-	void Union(int x, int y)
-	{
-		int xx = Find(x), yy = Find(y);
-		if(xx == yy)
-			return;
-		if(Rank[xx] < Rank[yy])
-			Group[xx] = yy;
-		else if(Rank[xx] > Rank[yy])
-			Group[yy] = xx;
+	bool Union(int x, int y) {
+		x = Find(x), y = Find(y);
+		if(x == y)
+			return 0;
+		if(Rank[x] < Rank[y])
+			Group[x] = y;
+		else if(Rank[x] > Rank[y])
+			Group[y] = x;
 		else
-			Rank[ Group[yy] = xx ]++;
+			Rank[ Group[y] = x ]++;
+		return 1;
 	}
 };
 
