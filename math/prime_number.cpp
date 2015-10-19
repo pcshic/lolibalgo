@@ -21,14 +21,14 @@ class primeNumber
 	{
 		for ( int i = 2 ; i <= MAX ; i ++ )
 		{
-			if ( !buf[ i ] )
+			if ( !buf[ i ] ) // is prime number
 			{
 				prime.push_back( i ) ;
 				buf[ i ] = prime.size() ;
 			}
 			for ( int j = 0 ; j < buf[ i ] && i * prime[ j ] <= MAX ;  )
 			{
-				buf[ i * prime[ j ] ] = ++ j ;
+				buf[ i * prime[ j ] ] = ++ j ; // 计穦砆计い程借计縵奔 
 			}
 		}
 	}
